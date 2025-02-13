@@ -7,17 +7,14 @@
                     <p class="fs-1 fw-bold">Hello there! I'm <span class="text-warning"
                                                                    id="name">Gerardo Gonzalez</span></p>
                     <p class="fs-1 fw-bold">Mobile developer</p>
-                    <p>I am a proactive, self-taught, organized and responsible person. I am passionate about creating
-                        mobile applications and continuously improving my skills. I enjoy learning new technologies and
-                        working in a team, so I am looking for a challenging position where I can apply my experience in
-                        mobile development and continue growing professionally..</p>
+                    <p>{{ this.description }}</p>
                 </div>
 
                 <div class="container text-center">
                     <div class="row">
                         <div class="col-6 d-grid gap-2">
                             <a class="btn btn-light shadow rounded-5 p-3 fw-bold"
-                               href="assets/cv/GerardoGonzalez_CV.pdf" target="_blank">
+                               href="{{ this.cvURL }}" target="_blank">
                                     <span class="d-none d-xl-inline">
                                         <i class="fa-regular fa-file-lines mx-4 fa-lg"></i>
                                     </span>

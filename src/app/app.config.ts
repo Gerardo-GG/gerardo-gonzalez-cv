@@ -4,6 +4,7 @@ import { provideRouter } from '@angular/router';
 import { routes } from './app.routes';
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { getAnalytics, provideAnalytics, ScreenTrackingService } from '@angular/fire/analytics';
+import { getRemoteConfig, provideRemoteConfig } from '@angular/fire/remote-config';
 
 export const appConfig: ApplicationConfig = {
     providers: [
@@ -18,6 +19,7 @@ export const appConfig: ApplicationConfig = {
             appId: "1:487614321162:web:476ca5c870a6c5ee1dc5f3",
             measurementId: "G-5BYC5DX0Y9"
         } ) ),
+        provideRemoteConfig(() => getRemoteConfig()),
         provideAnalytics( () => getAnalytics() ),
         ScreenTrackingService
     ]
