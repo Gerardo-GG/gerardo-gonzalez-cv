@@ -19,7 +19,7 @@ export class AboutComponent {
     }
 
     async runGetParametters() {
-        this.description = await this.remoteConfigService.getConfigValue( 'nuevo' );
+        this.description = await this.remoteConfigService.getConfigValue( 'txt_description' );
         this.cvURL = await this.remoteConfigService.getConfigValue( 'url_cv_english' );
     }
 }

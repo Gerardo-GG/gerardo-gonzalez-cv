@@ -1,17 +1,17 @@
 import { Component } from '@angular/core';
 import { FirestoreService } from '../services/firestore.service';
-import { NgForOf, NgStyle } from '@angular/common';
+import { NgForOf, NgIf } from '@angular/common';
 
 @Component({
-  selector: 'app-projects',
+  selector: 'app-modals',
     imports: [
         NgForOf,
-        NgStyle
+        NgIf
     ],
-  templateUrl: './projects.component.html',
-  styleUrl: './projects.component.css'
+  templateUrl: './modals.component.html',
+  styleUrl: './modals.component.css'
 })
-export class ProjectsComponent {
+export class ModalsComponent {
     items: any[] = [];
 
     constructor(private firestoreService: FirestoreService) {}
@@ -21,7 +21,5 @@ export class ProjectsComponent {
             this.items = data;
             console.log(this.items);
         });
-
-        // this.firestoreService.importData()
     }
 }

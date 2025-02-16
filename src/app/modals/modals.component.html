@@ -1,0 +1,120 @@
+<div *ngFor="let item of items">
+    <div *ngIf="item.button_modal_target != '#conwaysModal'">
+        <div class="modal fade" id="{{ item.modal_id }}" tabindex="-1" [attr.aria-labelledby]="item.modal_id"
+             aria-hidden="true">
+            <div class="modal-dialog modal-fullscreen">
+                <div class="modal-content bg-dark">
+                    <div class="modal-body">
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                                aria-label="Close"></button>
+                        <div id="carousel{{ item.modal_id }}" class="carousel slide" data-bs-ride="false">
+                            <div class="carousel-indicators">
+                                <div *ngFor="let image of item.images; index as i">
+                                    <button *ngIf="i === 0" type="button"
+                                            [attr.data-bs-target]="'#carousel' + item.modal_id"
+                                            [attr.data-bs-slide-to]="i"
+                                            class="active shadow-lg" aria-current="true"
+                                            [attr.aria-label]="'Slide' + i "></button>
+                                    <button *ngIf="i > 0" type="button"
+                                            [attr.data-bs-target]="'#carousel' + item.modal_id"
+                                            [attr.data-bs-slide-to]="i"
+                                            [attr.aria-label]="'Slide' + i "></button>
+                                </div>
+                            </div>
+                            <div class="carousel-inner bg-dark carousel-container">
+                                <div *ngFor="let image of item.images; index as i">
+                                    <div class="carousel-item active" *ngIf="i === 0">
+                                        <img src="{{ image }}" class="mx-auto d-block image-size gradient-image"/>
+                                    </div>
+                                    <div class="carousel-item" *ngIf="i > 0">
+                                        <img src="{{ image }}" class="mx-auto d-block image-size gradient-image"/>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <button class="carousel-control-prev" type="button"
+                                    [attr.data-bs-target]="'#carousel' + item.modal_id"
+                                    data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button"
+                                    [attr.data-bs-target]="'#carousel' + item.modal_id"
+                                    data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+<div class="modal fade" id="conwaysModal" tabindex="-1" aria-labelledby="conwaysModal" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header bg-dark">
+                <h5 class="modal-title text-white" id="">
+                    <i class="fa-solid fa-border-all fa-xl m-2"></i><strong>Automata celular</strong>
+                </h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p class="">
+                    Cellular automata are spatially and temporally finite-state discrete computational systems composed
+                    of a finite set of cells evolving in parallel at discrete time steps. Cellular automata are abstract
+                    structures that can be used as general models of complexity. They can also be used for the study of
+                    nonlinear dynamics.
+                    Cellular automata are inspired by self-reproducing or self-replicating living organisms.
+                </p>
+                <hr/>
+                <strong>
+                    <h5>Conway's Game of life</h5>
+                </strong>
+                <p class="">The Game of Life is not your typical computer game. It is a cellular automaton, and was
+                    invented by Cambridge mathematician John Conway. It consists of a grid of cells which, based on a
+                    few mathematical rules, can live, die or multiply. Depending on the initial conditions, the cells
+                    form various patterns throughout the course of the game.</p>
+                <ol class="list-group list-group-numbered list-group-vertical mt-3">
+                    <li class="list-group-item d-flex justify-content-between align-items-start">
+                        <div class="ms-2 me-auto">
+                            <div class="fw-bold">Isolation</div>
+                            Each cell with one or no neighbors dies, as if by solitude.
+                        </div>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-start">
+                        <div class="ms-2 me-auto">
+                            <div class="fw-bold">Survival</div>
+                            Each cell with two or three neighbors survives.
+                        </div>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-start">
+                        <div class="ms-2 me-auto">
+                            <div class="fw-bold">Overpopulation</div>
+                            Each cell with four or more neighbors dies, as if by overpopulation.
+                        </div>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-start">
+                        <div class="ms-2 me-auto">
+                            <div class="fw-bold">Birth</div>
+                            Each cell with three neighbors becomes populated.
+                        </div>
+                    </li>
+                </ol>
+                <div class="d-flex justify-content-center mt-5">
+                    <img src="assets/Life/rules.png" style="width: 70%;" alt="Rules">
+                </div>
+            </div>
+            <div class="modal-footer bg-dark">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                    Close
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

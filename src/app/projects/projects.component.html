@@ -1,1 +1,49 @@
-<p>projects works!</p>
+<!-- Projects -->
+<section id="projects">
+    <div class="container px-4 py-5" id="custom-cards">
+        <h2 class="py-3 fw-bold fs-2">Projects</h2>
+
+        <hr>
+
+        <div class="row row-cols-1 row-cols-lg-2 align-items-stretch g-4 py-5 mx-lg-5">
+            <div class="col-md-6" *ngFor="let item of items">
+                <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg card-image-background"
+                     [ngStyle]="{'background-image': 'url(' + item.image_background + ')'}">
+                    <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
+                        <h2 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">{{ item.project_name }}</h2>
+
+                        <ul class="d-flex list-unstyled mt-auto align-items-center">
+                            <li class="d-flex align-items-center me-3 ">
+                                <div class="vstack gap-3">
+                                    <div>
+                                        <i class="fa-brands {{ item.icon_1 }} fa-xl m-2"></i>
+                                        <small class="align-self-center">{{ item.text_icon_1 }}</small>
+                                    </div>
+                                    <div>
+                                        <i class="fa-brands {{ item.icon_2 }} fa-xl m-2"></i>
+                                        <small class="align-self-center">{{ item.text_icon_2 }}</small>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">{{ item.type_project }}</h5>
+                        <p class="card-text">{{ item.description }}</p>
+                        <div class="d-flex align-items-center">
+                            <a href="{{ item.button_link_url }}"
+                               class="btn btn-light w-100 btn-sm m-3 shadow-2" target="_blank">
+                                {{ item.button_link_title }}
+                            </a>
+                            <a type="button" class="btn btn-light w-100 btn-sm m-3 shadow-2"
+                               data-bs-toggle="modal"
+                               [attr.data-bs-target]="item.button_modal_target">
+                                {{ item.button_modal_title }}
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
